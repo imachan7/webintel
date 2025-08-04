@@ -1,0 +1,68 @@
+
+
+取得した外部情報:¥n 空飛ぶスパゲッティ・モンスター教（そらとぶスパゲッティ・モンスターきょう、英語: Flying Spaghetti Monster, Church of the Flying Spaghetti Monster, Pastafarianism）は、ボビー・ヘンダーソンが、「インテリジェント・デザイン説（ID説）」を公教育に持ち込むことを諷刺し批判するために創始したパロディ宗教ないし新宗教である。
+信者はパスタファリアン（Pastafarian）と呼ばれる。略称としては日本語では「スパモン教」、その信者は「スパモン教徒」、英語圏では「FSM」となる。
+
+
+== 概要 ==
+
+
+=== 成立までの経緯 ===
+
+2005年にカンザス州教育委員会では、公教育において進化論と同様にインテリジェント・デザイン説（ID説）の立場も教えなければいけないという決議が評決されることになっていた。前年の教育委員の改選で委員6人中4人を保守派が占めており、可決は確実と見られていた。これに抗議するために、2005年6月、アメリカ合衆国のオレゴン州立大学物理学科卒業生のボビー・ヘンダーソンは公開質問状を提出した。ヘンダーソンは自分のサイト "venganza.org" （スペイン語で復讐の意）において創造主である空飛ぶスパゲッティ・モンスターの概略を示して、明らかな証拠や、それに基づいて進化を説明できる十分な論理性・整合性があると論じ、創造論の一部として「空飛ぶスパゲッティ・モンスター」を進化論やID説と同様に公立高校で教えることを公開質問状において提案した。
+
+そしてもしこれが受け入れられないようなら法的手段をとると教育委員会に警告した。
+その後、空飛ぶスパゲッティ・モンスターはインターネットミームとなり、ブログ（特に人気ブログ Boing Boing）などを中心に世界に広まった。カンザス州教育委員会にもインテリジェント・デザイン説を教える事に反対する人々がおり、ヘンダーソンはそのうち三人から空飛ぶスパゲッティ・モンスターに対する好意的な返事を受け取った。 ¥n
+model:空飛ぶスパゲッティ・モンスター教（英語: Flying Spaghetti Monster, Church of the Flying Spaghetti Monster, Pastafarianism）は、ボビー・ヘンダーソンが、インテリジェント・デザイン説（ID説）を公教育に持ち込むことを批判するために創始したパロディ宗教です.
+
+**概要**
+
+*   **起源:** 2005年、カンザス州教育委員会が公教育で進化論と同様にインテリジェント・デザイン説を教えることを義務付けようとしたことに対し、ボビー・ヘンダーソンが抗議として創始.
+*   **目的:** ID説を批判し、進化論とID説の不毛な争いに終止符を打つこと.
+*   **英語での名称:** Flying Spaghetti Monster, Church of the Flying Spaghetti Monster, Pastafarianism.
+*   **信者:** パスタファリアンと呼ばれ、日本語では「スパモン教徒」、英語圏では「FSM」と略される [1, 4, 10空飛ぶスパゲッティ・モンスター教（英語: Flying Spaghetti Monster, Church of the Flying Spaghetti Monster, Pastafarianism）は、ボビー・ヘンダーソンが、インテリジェント・デザイン説（ID説）を公教育に持ち込むことを批判するために創始したパロディ宗教です [1, 2, 3, 4, 5].
+
+**概要**
+
+*   **起源:** 2005年、カンザス州教育委員会が公教育で進化論と同様にインテリジェント・デザイン説を教えることを義務付けようとしたことに対し、ボビー・ヘンダーソンが抗議として創始 [1, 2].
+*   **目的:** ID説を批判し、進化論とID説の不毛な争いに終止符を打つこと [3, 14].
+*   **英語での名称:** Flying Spaghetti Monster, Church of the Flying Spaghetti Monster, Pastafarianism [1].
+*   **信者:** パスタファリアンと呼ばれ、日本語では「スパモン教徒」、英語圏では「FSM」と略される [1, 4, 10
+
+
+# 会話を覚えておくための変数
+speech_log = []
+# 何回も対話できるようにループする
+while True:
+
+    # ユーザーの発言を入力
+    speech_user = input("user:")
+    # ユーザーの発言をログに追記
+    speech_log.append({"role":"user", "speech":speech_user})
+
+    # 「おしまい」とだけユーザーが入力したら対話終了
+    if speech_user == "おしまい":
+        print(f"model:おしまいです。さようなら")
+        break
+
+    # 今回の生成に使うプロンプト
+    prompt = ""
+
+    # 前提となる指示を
+    prompt += system_instruction6
+
+    # 今回の生成に使うプロンプトに会話記録を組み込む
+    for speech_log_item in speech_log:
+        prompt += f"{speech_log_item['role']}: {speech_log_item['speech']}\n"
+    prompt += "model:"
+
+
+    # システムの発言を生成
+    response = client.models.generate_content( model=model_name,contents=prompt, config=config)
+    print(f"model:{response.text}")
+    # システムの発言をログに追記
+    speech_log.append({"role":"model", "speech":response.text})
+
+
+
+Colab の有料サービス - 契約解除はこちら
