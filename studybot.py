@@ -8,7 +8,7 @@ from google.genai import types
 from google.genai.types import Tool, GenerateContentConfig, GoogleSearch
 
 # APIキーの取得（環境変数から）
-os.environ['GOOGLE_API_KEY'] = 'AIzaSyAZuRCKW5ap98_M13q0To7FcUEkjS8F45s'  # ← テスト用。必要なら有効化
+os.environ['GOOGLE_API_KEY'] =  # ← テスト用。必要なら有効化
 
 def get_api_key():
     try:
